@@ -43,7 +43,60 @@
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=block">
     <style type="text/css">
-        img {
+
+.show-gift-button {
+        padding: 10px 20px;
+        background-color: #222;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .show-gift-button:hover {
+        background-color: #444;
+    }
+
+    .gift-cards-grid {
+        display: none;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin-top: 20px;
+    }
+
+    .bank-card {
+        background-color: #eee;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .chip {
+        width: 40px;
+        height: 30px;
+        background: gold;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+    /* Animasi fade in */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+img {
   filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
@@ -1009,15 +1062,15 @@ img:hover {
             --background-tertiary: #ffffff !important;
             --background-tertiary-rgb: 254, 254, 252 !important;
             --text-primary: #111111 !important;
-            --text-primary-rgb: 148, 171, 185 !important;
+            --text-primary-rgb: 245, 245, 245 !important;
             --text-secondary: #111111 !important;
-            --text-secondary-rgb: 148, 171, 185 !important;
+            --text-secondary-rgb: 245, 245, 245 !important;
             --text-tertiary: #111111 !important;
-            --text-tertiary-rgb: 148, 171, 185 !important;
+            --text-tertiary-rgb: 245, 245, 245 !important;
             --button-text-primary: #ffffff !important;
             --button-text-primary-rgb: 245, 245, 245 !important;
             --button-background-primary: #111111 !important;
-            --button-background-primary-rgb: 148, 171, 185 !important;
+            --button-background-primary-rgb: 105, 105, 105 !important;
             --button-text-secondary: #111111 !important;
             --button-text-secondary-rgb: 148, 171, 185 !important;
             --button-background-secondary: #ffffff !important;
@@ -2322,19 +2375,19 @@ img:hover {
                     </div>
                 </div>
                 <div class="live-filter-wrapper-inner">
-                    <!-- Instagram Filter -->
+                    <!-- Tiktok Filter -->
                     <section class="ig-filter-wrap">
                         <div class="ig-filter">
 
                             <div class="ig-filter-head">
                                 <h2 class="ig-filter-title aos-init aos-animate" data-aos="fade-up"
-                                    data-aos-duration="1200" style="opacity: 1; transition-duration: 1200ms;">Instagram
+                                    data-aos-duration="1200" style="opacity: 1; transition-duration: 1200ms;">Tiktok
                                     Wedding Filter </h2>
 
                                 <p class="ig-filter-caption aos-init aos-animate" data-aos="fade-up"
                                     data-aos-duration="1200" data-aos-delay="200"
                                     style="opacity: 1; transition-duration: 1200ms;">
-                                    Capture your moment while attending our wedding by using the Instagram filter below.
+                                    Capture your moment while attending our wedding by using the Tiktok filter below.
                                 </p>
                             </div>
                             <div class="ig-filter-body">
@@ -2348,7 +2401,7 @@ img:hover {
 
                                         <img class="ig-filter-img"
                                             src="img/story/1.png"
-                                            alt="Instagram Filter Preview">
+                                            alt="Tiktok Filter Preview">
                                     </div>
                                 </div>
                                 <div class="ig-filter-link-wrap aos-init aos-animate" data-aos="fade-up"
@@ -2430,94 +2483,61 @@ img:hover {
         </section>
 
         <!-- WEDDING GIFT -->
-        <section class="wedding-gift-wrap ">
-            <div class="wedding-gift-innner-wrapper">
-                <div class="wedding-gift-inner">
+<!-- WEDDING GIFT -->
+<section class="wedding-gift-wrap">
+    <div class="wedding-gift-innner-wrapper">
+        <div class="wedding-gift-inner">
 
-                    <div class="wedding-gift-head">
-                        <h1 class="wedding-gift-title aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1500">
-                            Wedding Gift </h1>
-                        <p class="wedding-gift-description aos-init aos-animate" data-aos="fade-up"
-                            data-aos-duration="1000">
-                            Your blessing and coming to our wedding are enough for us. However, if you want to give a
-                            gift we provide a Digital Envelope to make it easier for you. thank you </p>
-                    </div>
+            <div class="wedding-gift-head">
+                <h1 class="wedding-gift-title" data-aos="zoom-in" data-aos-duration="1500">
+                    Wedding Gift
+                </h1>
+                <p class="wedding-gift-description" data-aos="fade-up" data-aos-duration="1000">
+                    Your blessing and presence mean the world to us. However, if you'd like to send a gift, we've prepared digital and physical options below. Thank you!
+                </p>
+            </div>
 
-                    <div class="wedding-gift-body">
-                        <div class="wedding-gift-body-inner">
+            <div class="wedding-gift-body">
+                <div class="wedding-gift-body-inner">
+                    
+                    <!-- Tombol Tampilkan Gift -->
+                    <center><button id="showGiftCardsBtn" class="show-gift-button" class="card-name">
+                        💌 Show Digital Gift Info
+                    </button></center>
 
-                            <div class="wedding-gift-form">
-                                <form action="" method="POST" id="weddingGiftForm">
-
-                                    <!-- Details -->
-                                    <div class="wedding-gift-details wedding-gift__first-slide wedding-gift-slide">
-                                        <!-- Select Bank -->
-                                        <div class="wedding-gift-select-bank-wrap">
-                                            <select name="select_bank" id="selectBank" class="form-control selectized"
-                                                tabindex="-1" style="display: none;">
-                                                <option value="11782" selected="selected">BANK BCA</option>
-                                            </select>
-                                            <div class="selectize-control form-control single">
-                                                <div class="selectize-dropdown single form-control"
-                                                    style="display: none; visibility: visible; width: 318px; top: 46px; left: 0px;">
-                                                    <div class="selectize-dropdown-content" tabindex="-1">
-                                                        <div class="item selected" data-selectable=""
-                                                            data-value="11782">
-                                                            <p class="select-bank__title">BANK BCA</p>
-                                                            <p class="select-bank__credential">8375180797</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Bank Wrap -->
-                                        <div class="wedding-gift-bank-wrap">
-                                            <div class="bank-item show" id="savingBook11785">
-                                                <div class="bank-detail">
-                                                    <h3 class="bank-name">BANK MANDIRI</h3>
-                                                    <div>
-                                                        <small class="bank-account-number-label">Account Number</small>
-                                                        <h4 class="bank-account-number" data-copy="1390026427066">
-                                                            1390026427066 <i class="ph ph-copy-simple"></i></h4>
-                                                    </div>
-                                                    <div>
-                                                        <small class="bank-account-name-label">Account Name</small>
-                                                        <h4 class="bank-account-name">Danang Avan Maulana</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="bank-item show" id="savingBook11789">
-                                                <div class="bank-detail">
-                                                    <h3 class="bank-name">BANK MANDIRI</h3>
-                                                    <div>
-                                                        <small class="bank-account-number-label">Account Number</small>
-                                                        <h4 class="bank-account-number" data-copy="1390029457193">
-                                                            1390029457193 <i class="ph ph-copy-simple"></i></h4>
-                                                    </div>
-                                                    <div>
-                                                        <small class="bank-account-name-label">Account Name</small>
-                                                        <h4 class="bank-account-name">Arina Dyah Safitri</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div style="display: none;">
-                                            <input type="file" name="picture" id="weddingGiftPicture"
-                                                data-wgu-preview="#weddingGiftPreview" style="display: none;">
-                                            <input type="hidden" name="template" value="chitra">
-                                            <input type="hidden" name="post" value="sendGift">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
+                    <!-- Kartu ATM -->
+                    <div class="gift-cards-grid fade-in" id="giftCards">
+                        <!-- Danang -->
+                        <div class="bank-card">
+                            <div class="chip"></div>
+                            <p class="bank-name">Bank Mandiri</p>
+                            <p class="card-number">1390 0264 2706 6</p>
+                            <p class="card-name">Danang Avan Maulana</p>
                         </div>
+
+                        <!-- Arina -->
+                        <div class="bank-card">
+                            <div class="chip"></div>
+                            <p class="bank-name">Bank Mandiri</p>
+                            <p class="card-number">1390 0294 5719 3</p>
+                            <p class="card-name">Arina Dyah Safitri</p>
+                        </div>
+                    </div><br></br>
+
+                    <!-- Physical Gift -->
+                    <div class="wedding-gift-head">
+                        <h1 class="wedding-gift-title" data-aos="zoom-in" data-aos-duration="1500">Send Physical Gift</h1>
+                        <p class="wedding-gift-description" data-aos="fade-up" data-aos-duration="1000">You can also send a physical gift to the address below:</p>
+                        <p class="wedding-gift-description" data-aos="fade-up" data-aos-duration="1000">📦 Address: Desa Rembul RT 01 RW 01, Kecamatan Bojong, Tegal, Jawa Tengah 52465</p>
                     </div>
+
                 </div>
             </div>
-        </section>
+
+        </div>
+    </div>
+</section>
+
         <!-- KADO AMPLOP -->
 
         <section class="wish-protocol-wrapper">
@@ -3039,6 +3059,15 @@ img:hover {
         getCommentsFromSheet();
 
     </script>
+
+<script>
+    document.getElementById("showGiftCardsBtn").addEventListener("click", function () {
+        const giftCards = document.getElementById("giftCards");
+        giftCards.style.display = "grid";
+        setTimeout(() => giftCards.classList.add("show"), 50);
+        this.style.display = "none";
+    });
+</script>
     </body>
 
 </html>
