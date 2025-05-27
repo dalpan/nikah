@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Hidden Action PoC</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Payment Gateway</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2em;
+      background: #f5f5f5;
+    }
+    .btn {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
 <body>
 
-<button id="normal-btn">Normal Button</button>
+  <h1>Dashboard Admin</h1>
 
-<button id="hidden-btn" disabled onclick="alert('Hidden Button Clicked!')">Hidden Button</button>
+  <div>
+    <button class="btn">Daftar Transaksi</button>
+    <button class="btn">Kelola Pengguna</button>
+    <button class="btn">Pengaturan Umum</button>
+  </div>
 
-<div id="hidden-div" style="display:none;" onclick="alert('Hidden Div Clicked!')">Hidden Div</div>
+  <!-- Tombol tersembunyi yang disembunyikan oleh admin hanya di sisi frontend -->
+  <div>
+    <button id="add-account-btn" class="btn hidden">Tambah Rekening</button>
+  </div>
 
+  <script>
+    // Admin menyembunyikan fitur ini di frontend, bukan backend
+    // Tapi tombol masih ada di DOM dan bisa di-reenable
+    console.log("Fitur Tambah Rekening dinonaktifkan sementara oleh frontend.");
+  </script>
 </body>
 </html>
