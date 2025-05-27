@@ -18,9 +18,6 @@
       color: white;
       cursor: pointer;
     }
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -33,14 +30,12 @@
     <button class="btn">Pengaturan Umum</button>
   </div>
 
-  <!-- Tombol tersembunyi yang disembunyikan oleh admin hanya di sisi frontend -->
+  <!-- Tombol tersembunyi yang disembunyikan langsung dari HTML, bukan CSS class -->
   <div>
-    <button id="add-account-btn" class="btn hidden">Tambah Rekening</button>
-  </div>
+    <button id="add-account-btn" class="btn" hidden>Tambah Rekening 1</button>
+    <button id="add-account-btn" class="btn" style="display: none;">Tambah Rekening 2</button>
 
   <script>
-    // Admin menyembunyikan fitur ini di frontend, bukan backend
-    // Tapi tombol masih ada di DOM dan bisa di-reenable
     console.log("Fitur Tambah Rekening dinonaktifkan sementara oleh frontend.");
   </script>
 </body>
